@@ -10,7 +10,7 @@
 - Deliver a 5 minute presentation via a notebook walkthrough for an audience of fellow cohorts and data science instructors, acting as notional figureheads at Telco
 - Address any questions and concerns as they may arise.
 
-# Business Goals:
+# Business Goals/ The Plan:
 - Discover and indicate the primary drivers of churn at this telecommuncations company
 - Create an effective machine learning model that will assess churn with high accuracy
 - Cleanly and concisely document this process in a notebook, with an aim of reproducibility by anyone interested in following suit. 
