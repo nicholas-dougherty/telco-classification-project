@@ -196,7 +196,29 @@ def plot_pay_methods(df):
     a.set_ylabel('% of Customers', fontsize = 20, fontweight = 'bold')
     a.set_xticklabels(a.get_xticklabels(), rotation = 45)
     
-   
+def get_churn_heatmap(df):
+    plt.figure(figsize=(8,12))
+    churn_heatmap = sns.heatmap(df.corr()[['churn_encoded']].sort_values(by='churn_encoded', ascending=False), vmin=-.5, vmax=.5, annot=True,cmap='flare')
+    churn_heatmap.set_title('Features Correlated with Churn')
+    
+    return churn_heatmap
+
+# Create a function to generate countplots:
+def countplot(x, y, df):
+    plots = {1 : [111], 2: [121, 122], 3: [131, 132, 133], 4: [221, 222, 223, 224],
+         5: [231, 232, 233, 234, 235], 6: [231, 232, 233, 234, 235, 236]}
+        
+    rows = int(str(plots[len(y)][0])[0])
+    columns = int(str(plots[len(y)][0])[1])
+    
+    plt.figure(figsize=(6*columns, 6*rows))
+    
+    for i, j in enumerate(y):
+        plt.subplot(plots[len(y)][i])
+        ax = sns.countplot(x=j, hue=x, data=df, palette=['#008000','#FF0000'], alpha=1, linewidth=0.8, edgecolor="black")
+        ax.set_title(j)
+        
+    return plt.show
     
     plt.tight_layout()   
    

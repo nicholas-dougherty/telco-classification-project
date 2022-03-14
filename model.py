@@ -22,14 +22,14 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
 
 
-def model_metrics(classifier):
+def model_metrics(X_train, y_train, y_pred):
     '''
     get_metrics_binary takes in a classifier model and prints out metrics based on
     values in variables named X_train, y_train, and y_pred.
     
     return: a classification report as a transposed DataFrame
     '''
-    accuracy = classifier.score(X_train, y_train)
+   # accuracy = classifier.score(X_train, y_train)
     class_report = pd.DataFrame(classification_report(y_train, y_pred, output_dict=True)).T
     conf = confusion_matrix(y_train, y_pred)
     tpr = conf[1][1] / conf[1].sum()
@@ -43,7 +43,6 @@ def model_metrics(classifier):
     print(f'Number of false negatives (fn) = {fn} \n The False Negative Rate (tpr) is: {fnr:.3} \n')
     print(f'Number of false positives (fp) = {fp} \n The False Positive Rate (tpr) is: {fpr:.3} \n')
     print(f'''
-    The accuracy for our model is {accuracy:.4}
     The True Positive Rate is {tpr:.3}, The False Positive Rate is {fpr:.3},
     The True Negative Rate is {tnr:.3}, and the False Negative Rate is {fnr:.3}
     ''')
