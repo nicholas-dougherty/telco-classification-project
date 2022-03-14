@@ -57,9 +57,9 @@ total_charges|The total amount a customer has paid for Telco™ services| object
 
 
 # Model
-- 
-- 
-- 
+- Decision Tree (criterion = 'entropy', max_depth = 6, min_samples_leaf = 1, min_samples_split = 30)
+- Random Forest Classifier (max_depth = 5, random_state = 123)
+- K-Nearest Neighbors(n_neighbors = 7, weights = 'uniform')
 - 
 
 # Recommendations:
